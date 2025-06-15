@@ -90,7 +90,7 @@ function App() {
             <button 
               onClick={toggleTheme}
               className={cn(
-                "p-3 rounded-full transition-all duration-300",
+                "p-3 rounded-full transition-all duration-200",
                 "shadow-md hover:shadow-lg",
                 "focus:outline-none focus:ring-2 focus:ring-opacity-50",
                 isDark 

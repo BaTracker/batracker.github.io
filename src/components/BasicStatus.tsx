@@ -19,9 +19,9 @@ export function BasicStatus({ records, latestRecord }: BasicStatusProps) {
   if (!latestRecord) {
     return (
       <div className={cn(
-        "rounded-lg p-5 mb-6 transition-all duration-300",
+        "rounded-lg p-5 mb-6 transition-all duration-200",
         "border shadow-sm hover:shadow-md",
-        "animate-in fade-in slide-in-from-bottom-5 duration-500 delay-300",
+        "animate-in fade-in slide-in-from-bottom-5 duration-200",
         isDark 
           ? "bg-gray-900 border-gray-800 text-gray-100" 
           : "bg-white border-gray-200 text-gray-900"
@@ -92,7 +92,7 @@ export function BasicStatus({ records, latestRecord }: BasicStatusProps) {
   return (
     <div className="w-full">
       <div className={cn(
-        "rounded-xl p-6 shadow-lg backdrop-blur-sm transition-all duration-300",
+        "rounded-xl p-6 shadow-lg backdrop-blur-sm transition-all duration-200",
         "hover:shadow-xl animate-fadeIn",
         isDark 
           ? "bg-slate-900/80 border border-slate-800 text-gray-100" 

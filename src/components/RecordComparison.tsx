@@ -49,7 +49,7 @@ export function RecordComparison({ records, compareRecords }: RecordComparisonPr
   return (
     <div className={cn(
       "rounded-xl p-6 shadow-lg backdrop-blur-sm",
-      "border-2 transition-all duration-300 hover:shadow-xl",
+      "border-2 transition-all duration-200 hover:shadow-xl",
       "animate-fadeIn",
       isDark 
         ? "bg-slate-900/80 border-slate-800 text-slate-100" 
@@ -115,7 +115,7 @@ export function RecordComparison({ records, compareRecords }: RecordComparisonPr
         <div className="space-y-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className={cn(
-              "p-4 rounded-lg transition-all duration-300",
+              "p-4 rounded-lg transition-all duration-200",
               "border hover:shadow-sm",
               isDark 
                 ? "bg-blue-900/10 border-blue-800/30" 
@@ -161,7 +161,7 @@ export function RecordComparison({ records, compareRecords }: RecordComparisonPr
             </div>
             
             <div className={cn(
-              "p-4 rounded-lg transition-all duration-300",
+              "p-4 rounded-lg transition-all duration-200",
               "border hover:shadow-sm",
               isDark 
                 ? "bg-purple-900/10 border-purple-800/30" 
@@ -207,7 +207,7 @@ export function RecordComparison({ records, compareRecords }: RecordComparisonPr
             </div>
             
             <div className={cn(
-              "p-4 rounded-lg transition-all duration-300",
+              "p-4 rounded-lg transition-all duration-200",
               "border hover:shadow-sm",
               isDark 
                 ? "bg-cyan-900/10 border-cyan-800/30" 
@@ -253,7 +253,7 @@ export function RecordComparison({ records, compareRecords }: RecordComparisonPr
             </div>
             
             <div className={cn(
-              "p-4 rounded-lg transition-all duration-300",
+              "p-4 rounded-lg transition-all duration-200",
               "border hover:shadow-sm",
               isDark 
                 ? "bg-green-900/10 border-green-800/30" 
