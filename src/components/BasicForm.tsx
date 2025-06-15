@@ -139,7 +139,7 @@ export function BasicForm({ onSubmit }: BasicFormProps) {
                 )}
               />
               <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400">
-                AP
+                XP
               </span>
             </div>
           </div>

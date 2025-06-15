@@ -192,7 +192,7 @@ function App() {
               <p>用 <span className="text-red-500 animate-pulse-slow inline-block">❤️</span> 为蔚蓝档案玩家打造</p>
             </div>
           </div>
-          <p className="text-xs mt-2 opacity-70">Version 1.0.0</p>
+          <p className="text-xs mt-2 opacity-70">Version 1.0.1</p>
         </footer>
       </div>
       <Toaster />

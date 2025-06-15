@@ -28,6 +28,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { DatePicker } from '@/components/ui/date-picker';
+import { TimePicker } from '@/components/ui/time-picker';
 
 // 编辑表单的验证模式
 const formSchema = z.object({
@@ -97,6 +98,9 @@ export function BasicTable({ records, onDeleteRecord, onEditRecord, onClearAllDa
       timestamp: Date.now(),
     },
   });
+  
+  // 用于时间选择器的状态
+  const [selectedTime, setSelectedTime] = useState<Date | undefined>(undefined);
 
   // 按日期分组记录
   const recordsByDate = useMemo(() => {
@@ -167,6 +171,8 @@ export function BasicTable({ records, onDeleteRecord, onEditRecord, onClearAllDa
   // 处理编辑记录
   const handleEditClick = (record: GameRecord) => {
     setCurrentEditRecord(record);
+    const recordDate = new Date(record.timestamp);
+    setSelectedTime(recordDate);
     form.reset({
       level: record.level,
       levelPoints: record.levelPoints,
@@ -180,10 +186,26 @@ export function BasicTable({ records, onDeleteRecord, onEditRecord, onClearAllDa
   // 提交编辑表单
   const onSubmit = (values: FormValues) => {
     if (currentEditRecord && onEditRecord) {
+      // 如果有选择时间，则将时间部分合并到日期中生成新的时间戳
+      if (selectedTime) {
+        const dateValue = new Date(values.timestamp);
+        const hours = selectedTime.getHours();
+        const minutes = selectedTime.getMinutes();
+        const seconds = selectedTime.getSeconds();
+        
+        const newDate = new Date(dateValue);
+        newDate.setHours(hours);
+        newDate.setMinutes(minutes);
+        newDate.setSeconds(seconds);
+        
+        values.timestamp = newDate.getTime();
+      }
+      
       const success = onEditRecord(currentEditRecord.id, values);
       if (success) {
         setEditDialogOpen(false);
         setCurrentEditRecord(null);
+        setSelectedTime(undefined);
       }
     }
   };
@@ -654,6 +676,24 @@ export function BasicTable({ records, onDeleteRecord, onEditRecord, onClearAllDa
                   </FormItem>
                 )}
               />
+              
+              {/* 时间选择器 */}
+              <FormItem className="flex flex-col">
+                <FormLabel className={cn(
+                  "font-medium",
+                  isDark ? "text-slate-300" : "text-slate-700"
+                )}>时间</FormLabel>
+                <TimePicker
+                  time={selectedTime}
+                  setTime={setSelectedTime}
+                  className={cn(
+                    isDark 
+                      ? "bg-slate-800 border-slate-700 text-slate-200 focus-visible:ring-sky-400/20" 
+                      : "bg-white border-slate-200 text-slate-900 focus-visible:ring-blue-500/20"
+                  )}
+                />
+                <div className="text-xs text-muted-foreground mt-1">选择记录的具体时间</div>
+              </FormItem>
               
               <DialogFooter className="mt-6">
                 <Button 
